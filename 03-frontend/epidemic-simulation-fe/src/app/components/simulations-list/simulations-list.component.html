@@ -1,0 +1,31 @@
+
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>[N] Simulation Name</th>
+      <th>[P] Population</th>
+      <th>[I] Initially Infexted People</th>
+      <th>[R] Reproduction Number</th>
+      <th>[M] Norality Number</th>
+      <th>[Ti] Recovery time</th>
+      <th>[Tm] Death time</th>
+      <th>[Ts] Simulation time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sim of simulationPropertiesList">
+      <td>{{ sim.id }}</td>
+      <td>{{ sim.simulationName }}</td>
+      <td>{{ sim.population }}</td>
+      <td>{{ sim.initiallyInfectedPopulation }}</td>
+      <td>{{ sim.reproductionNumber }}</td>
+      <td>{{ sim.mortality }}</td>
+      <td>{{ sim.recoveryTime }}</td>
+      <td>{{ sim.deathTime }}</td>
+      <td>{{ sim.simulationTime }}</td>
+    </tr>
+
+  </tbody>
+</table>
+

@@ -13,6 +13,7 @@ import pl.polris.epidemicsimulation.service.SimulationService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api")
 public class SimulationRestController {
 
@@ -44,7 +45,6 @@ public class SimulationRestController {
             throw new RuntimeException("Simulation not found id: " + simulationId);
 
         } else {
-            //TODO
             List<SimulationResult> simulationResultList = simulationResultService.findAllBySimulationId(simulationId);
             SimulationDetails simulationDetails = new SimulationDetails(simulationParameters, simulationResultList);
             return simulationDetails;
@@ -63,7 +63,8 @@ public class SimulationRestController {
         return simulationParameters;
     }
 
-    //     Edit simulation
+    // Edit simulation
+    //TODO simulation edition adds new results, but doesn't delete old results - it needs to be corrected
     @PutMapping("/simulations")
     public SimulationDetails updateSimulation(@RequestBody SimulationParameters simulationParameters) {
 
