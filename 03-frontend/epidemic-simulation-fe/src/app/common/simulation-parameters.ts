@@ -1,4 +1,4 @@
-export class SimulationProperties {
+export class SimulationParameters {
 
     id: number;
     simulationName: string;

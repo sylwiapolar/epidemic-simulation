@@ -1,31 +1,74 @@
+<div class="simulationList-section">
+  <div>
+    <!-- TODO fill in action-->
+    <!-- <form action="/simulations" method="POST"> -->
+    <form [formGroup]="">
+      <fieldset>
+        <label for="simName"> {{ ParameterName.SIMULATION_NAME }}:</label>
+        <input type="text" id="simName" name="simName">
+      </fieldset>
+      <fieldset>
+        <label for="population">{{ ParameterName.POPULATION }}:</label>
+        <input type="number" id="population" name="population" min="1" step="1" required>
+      </fieldset>
+      <fieldset>
+        <label for="initInfected">{{ ParameterName.INIT_INFECTED }}:</label>
+        <input type="number" id="initInfected" name="initInfected" min="1" step="1" required>
+      </fieldset>
+      <fieldset>
+        <label for="reproductionNum">{{ ParameterName.REPRODUCTION_NUM }}:</label>
+        <input type="number" id="reproductionNum" name="reproductionNum" min="1" step="0.01" required>
+      </fieldset>
+      <fieldset>
+        <label for="morality">{{ ParameterName.MORALITY }}:</label>
+        <input type="number" id="morality" name="morality" min="1" step="0.1" required>
+      </fieldset>
+      <fieldset>
+        <label for="recoveryTime">{{ ParameterName.RECOVERY_TIME }}:</label>
+        <input type="number" id="recoveryTime" name="recoveryTime" min="1" step="1" required>
+      </fieldset>
+      <fieldset>
+        <label for="deathTime">{{ ParameterName.DEATH_TIME }}:</label>
+        <input type="number" id="deathTime" name="deathTime" min="1" step="1" required>
+      </fieldset>
+      <fieldset>
+        <label for="simulationTime">{{ ParameterName.SIMULATION_TIME }}:</label>
+        <input type="number" id="simulationTime" name="simulationTime" min="1" step="1" required>
+      </fieldset>
 
-<table class="table table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th>Id</th>
-      <th>[N] Simulation Name</th>
-      <th>[P] Population</th>
-      <th>[I] Initially Infexted People</th>
-      <th>[R] Reproduction Number</th>
-      <th>[M] Norality Number</th>
-      <th>[Ti] Recovery time</th>
-      <th>[Tm] Death time</th>
-      <th>[Ts] Simulation time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let sim of simulationPropertiesList">
-      <td>{{ sim.id }}</td>
-      <td>{{ sim.simulationName }}</td>
-      <td>{{ sim.population }}</td>
-      <td>{{ sim.initiallyInfectedPopulation }}</td>
-      <td>{{ sim.reproductionNumber }}</td>
-      <td>{{ sim.mortality }}</td>
-      <td>{{ sim.recoveryTime }}</td>
-      <td>{{ sim.deathTime }}</td>
-      <td>{{ sim.simulationTime }}</td>
-    </tr>
+      <button type="reset" class="btn btn-outline-secondary">Clear</button>
+      <button type="submit" class="btn btn-primary" >Add Simulation</button>
+    </form>
+  </div>
 
-  </tbody>
-</table>
-
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>{{ ParameterName.ID }}</th>
+        <th>{{ ParameterName.SIMULATION_NAME }}</th>
+        <th>{{ ParameterName.POPULATION }}</th>
+        <th>{{ ParameterName.INIT_INFECTED }}</th>
+        <th>{{ ParameterName.REPRODUCTION_NUM }}</th>
+        <th>{{ ParameterName.MORALITY }}</th>
+        <th>{{ ParameterName.RECOVERY_TIME }}</th>
+        <th>{{ ParameterName.DEATH_TIME }}</th>
+        <th>{{ ParameterName.SIMULATION_TIME }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sim of simulationParametersList">
+        <td>{{ sim.id }}</td>
+        <td>{{ sim.simulationName }}</td>
+        <td>{{ sim.population }}</td>
+        <td>{{ sim.initiallyInfectedPopulation }}</td>
+        <td>{{ sim.reproductionNumber }}</td>
+        <td>{{ sim.mortality }}</td>
+        <td>{{ sim.recoveryTime }}</td>
+        <td>{{ sim.deathTime }}</td>
+        <td>{{ sim.simulationTime }}</td>
+        <!-- TODO change it to give link for whole row and ad delete option-->
+        <td><a routerLink="/simulations/{{ sim.id }}">View Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

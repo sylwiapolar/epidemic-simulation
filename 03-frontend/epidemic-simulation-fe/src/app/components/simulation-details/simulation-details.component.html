@@ -1,0 +1,28 @@
+<div class="details-section">
+    <h2>Simulation Results</h2>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Day</th>
+                <th>[Pi] Infected</th>
+                <th>[Pv] Prone to infection</th>
+                <th>[Pm] Dead</th>
+                <th>[Pr] Recovered</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let simResult of simulationDetails.simulationResultList">
+                <td>{{ simResult.id }}</td>
+                <td>{{ simResult.simulationDay }}</td>
+                <td>{{ simResult.infected }}</td>
+                <td>{{ simResult.proneToInfection }}</td>
+                <td>{{ simResult.dead }}</td>
+                <td>{{ simResult.recovered }}</td>
+                <!-- TODO change it to main page -->
+                <td><a routerLink="/simulations">List of Simulations</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

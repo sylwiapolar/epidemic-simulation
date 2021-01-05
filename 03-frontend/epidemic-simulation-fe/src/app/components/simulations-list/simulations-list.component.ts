@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SimulationProperties } from 'src/app/common/simulation-properties';
+import { FormBuilder } from '@angular/forms';
+import { ParameterName } from 'src/app/common/parameter-name';
+import { SimulationParameters } from 'src/app/common/simulation-parameters';
 import { SimulationService } from 'src/app/services/simulation.service';
 
 @Component({
@@ -9,20 +11,40 @@ import { SimulationService } from 'src/app/services/simulation.service';
 })
 export class SimulationsListComponent implements OnInit {
 
-  simulationPropertiesList: SimulationProperties[];
+  simulationParametersList: SimulationParameters[];
+  ParameterName = ParameterName;
+  checkoutForm;
 
-  constructor(private simulationService: SimulationService) { }
+  constructor(
+    private simulationService: SimulationService,
+    private formBuilder: FormBuilder) { 
+      this.checkoutForm = this.formBuilder.group({
+        simName: '',
+        population: '',
+        initInfected: '',
+        reproductionNum: '',
+        morality: '',
+        recoveryTime: '',
+        deathTime: '',
+        simulationTime: ''
+      })
+    }
 
   ngOnInit(): void {
-    this.listSimulationsProperties();
+    this.listSimulationParameters();
   }
 
 
-  listSimulationsProperties(){
+  listSimulationParameters(){
     this.simulationService.getSimulationList().subscribe(
       data => {
-        this.simulationPropertiesList = data;
+        this.simulationParametersList = data;
       }
     )
+  }
+
+  onSubmit() {
+    //TODO write code to submit data to database
+    this.checkoutForm.reset();
   }
 }
