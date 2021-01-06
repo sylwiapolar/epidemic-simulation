@@ -28,15 +28,15 @@ public class SimulationParameters {
 
     //Shortcut: I
     @Column(name="initially_infected_population")
-    private long initiallyInfectedPopulation;
+    private long initInfected;
 
     //Shortcut: R
     @Column(name="reproduction_number")
-    private double reproductionNumber;
+    private double reproductionNum;
 
     //Shortcut: M
     @Column(name="morality")
-    private double mortality;
+    private double morality;
 
     //Shortcut: Ti
     @Column(name="recovery_time")
@@ -56,13 +56,13 @@ public class SimulationParameters {
     public SimulationParameters() {
     }
 
-    public SimulationParameters(String simulationName, long population, long initiallyInfectedPopulation,
-                                int reproductionNumber, int mortality, int recoveryTime, int deathTime, int simulationTime) {
+    public SimulationParameters(String simulationName, long population, long initInfected,
+                                int reproductionNum, int morality, int recoveryTime, int deathTime, int simulationTime) {
         this.simulationName = simulationName;
         this.population = population;
-        this.initiallyInfectedPopulation = initiallyInfectedPopulation;
-        this.reproductionNumber = reproductionNumber;
-        this.mortality = mortality;
+        this.initInfected = initInfected;
+        this.reproductionNum = reproductionNum;
+        this.morality = morality;
         this.recoveryTime = recoveryTime;
         this.deathTime = deathTime;
         this.simulationTime = simulationTime;
@@ -78,9 +78,9 @@ public class SimulationParameters {
                 "id=" + id +
                 ", simulationName='" + simulationName + '\'' +
                 ", population=" + population +
-                ", initiallyInfectedPopulation=" + initiallyInfectedPopulation +
-                ", reproductionNumber=" + reproductionNumber +
-                ", mortality=" + mortality +
+                ", initInfected=" + initInfected +
+                ", reproductionNum=" + reproductionNum +
+                ", morality=" + morality +
                 ", recoveryTime=" + recoveryTime +
                 ", deathTime=" + deathTime +
                 ", simulationTime=" + simulationTime +

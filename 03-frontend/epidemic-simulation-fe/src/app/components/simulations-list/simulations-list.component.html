@@ -1,89 +1,89 @@
 <div class="simulationList-section">
-  <div>
-    <!-- (ngSubmit)="onSubmit(checkoutForm.value)" -->
-    <form [formGroup]="simulationForm" (ngSubmit)="submitSimulation()">
-      <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="simName"> {{ ParameterName.SIMULATION_NAME }}:</label>
-        <div class="col-sm-4">
-          <input class="form-control" type="text" id="simName" formControlName="simName">
-        </div>
-      </fieldset>
-      <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="population">{{ ParameterName.POPULATION }}:</label>
-        <div class="col-sm-4">
-          <input class="form-control" type="number" id="population" formControlName="population" name="population" step="1">
-        </div>
-      </fieldset>
-      <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="initInfected">{{ ParameterName.INIT_INFECTED }}:</label>
-        <div class="col-sm-4">
-          <input class="form-control" type="number" id="initInfected" formControlName="initInfected" step="1">
-        </div>
-      </fieldset>
-      <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="reproductionNum">{{ ParameterName.REPRODUCTION_NUM }}:</label>
-        <div class="col-sm-4">
-          <input class="form-control" type="number" id="reproductionNum" formControlName="reproductionNum" step="0.01">
-        </div>
-      </fieldset>
-      <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="morality">{{ ParameterName.MORALITY }}:</label>
-        <div class="col-sm-4">
-          <input class="form-control" type="number" id="morality" formControlName="morality" step="0.1">
-        </div>
-      </fieldset>
-      <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="recoveryTime">{{ ParameterName.RECOVERY_TIME }}:</label>
-        <div class="col-sm-4">
-          <input class="form-control" type="number" id="recoveryTime" formControlName="recoveryTime" step="1">
-        </div>
-      </fieldset>
-      <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="deathTime">{{ ParameterName.DEATH_TIME }}:</label>
-        <div class="col-sm-4">
-          <input class="form-control" type="number" id="deathTime" formControlName="deathTime" step="1">
-        </div>
-      </fieldset>
-      <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="simulationTime">{{ ParameterName.SIMULATION_TIME }}:</label>
-        <div class="col-sm-4">
-          <input class="form-control" type="number" id="simulationTime" formControlName="simulationTime" step="1">
-        </div>
-      </fieldset>
-
-      <button type="reset" class="btn btn-outline-secondary">Clear</button>
-      <button type="submit" [disabled]="simulationForm.invalid" class="btn btn-primary">Add Simulation</button>
-    </form>
+    <div>
+      <!-- (ngSubmit)="onSubmit(checkoutForm.value)" -->
+      <form [formGroup]="simulationForm" (ngSubmit)="submitSimulation()">
+        <fieldset class="form-group row">
+          <label class="col-sm-3 col-form-label" for="simulationName"> {{ ParameterName.SIMULATION_NAME }}:</label>
+          <div class="col-sm-4">
+            <input class="form-control" type="text" id="simulationName" formControlName="simulationName">
+          </div>
+        </fieldset>
+        <fieldset class="form-group row">
+          <label class="col-sm-3 col-form-label" for="population">{{ ParameterName.POPULATION }}:</label>
+          <div class="col-sm-4">
+            <input class="form-control" type="number" id="population" formControlName="population" name="population" step="1">
+          </div>
+        </fieldset>
+        <fieldset class="form-group row">
+          <label class="col-sm-3 col-form-label" for="initInfected">{{ ParameterName.INIT_INFECTED }}:</label>
+          <div class="col-sm-4">
+            <input class="form-control" type="number" id="initInfected" formControlName="initInfected" step="1">
+          </div>
+        </fieldset>
+        <fieldset class="form-group row">
+          <label class="col-sm-3 col-form-label" for="reproductionNum">{{ ParameterName.REPRODUCTION_NUM }}:</label>
+          <div class="col-sm-4">
+            <input class="form-control" type="number" id="reproductionNum" formControlName="reproductionNum" step="0.01">
+          </div>
+        </fieldset>
+        <fieldset class="form-group row">
+          <label class="col-sm-3 col-form-label" for="morality">{{ ParameterName.MORALITY }}:</label>
+          <div class="col-sm-4">
+            <input class="form-control" type="number" id="morality" formControlName="morality" step="0.1">
+          </div>
+        </fieldset>
+        <fieldset class="form-group row">
+          <label class="col-sm-3 col-form-label" for="recoveryTime">{{ ParameterName.RECOVERY_TIME }}:</label>
+          <div class="col-sm-4">
+            <input class="form-control" type="number" id="recoveryTime" formControlName="recoveryTime" step="1">
+          </div>
+        </fieldset>
+        <fieldset class="form-group row">
+          <label class="col-sm-3 col-form-label" for="deathTime">{{ ParameterName.DEATH_TIME }}:</label>
+          <div class="col-sm-4">
+            <input class="form-control" type="number" id="deathTime" formControlName="deathTime" step="1">
+          </div>
+        </fieldset>
+        <fieldset class="form-group row">
+          <label class="col-sm-3 col-form-label" for="simulationTime">{{ ParameterName.SIMULATION_TIME }}:</label>
+          <div class="col-sm-4">
+            <input class="form-control" type="number" id="simulationTime" formControlName="simulationTime" step="1">
+          </div>
+        </fieldset>
+  
+        <button type="reset" class="btn btn-outline-secondary">Clear</button>
+        <button type="submit" [disabled]="simulationForm.invalid" class="btn btn-primary">Add Simulation</button>
+      </form>
+    </div>
+  
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>{{ ParameterName.ID }}</th>
+          <th>{{ ParameterName.SIMULATION_NAME }}</th>
+          <th>{{ ParameterName.POPULATION }}</th>
+          <th>{{ ParameterName.INIT_INFECTED }}</th>
+          <th>{{ ParameterName.REPRODUCTION_NUM }}</th>
+          <th>{{ ParameterName.MORALITY }}</th>
+          <th>{{ ParameterName.RECOVERY_TIME }}</th>
+          <th>{{ ParameterName.DEATH_TIME }}</th>
+          <th>{{ ParameterName.SIMULATION_TIME }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sim of simulationParametersList">
+          <td>{{ sim.id }}</td>
+          <td>{{ sim.simulationName }}</td>
+          <td>{{ sim.population }}</td>
+          <td>{{ sim.initInfected }}</td>
+          <td>{{ sim.reproductionNum }}</td>
+          <td>{{ sim.mortality }}</td>
+          <td>{{ sim.recoveryTime }}</td>
+          <td>{{ sim.deathTime }}</td>
+          <td>{{ sim.simulationTime }}</td>
+          <!-- TODO change it to give link for whole row and ad delete option-->
+          <td><a routerLink="/simulations/{{ sim.id }}">View Details</a></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-
-  <table class="table table-hover">
-    <thead class="thead-dark">
-      <tr>
-        <th>{{ ParameterName.ID }}</th>
-        <th>{{ ParameterName.SIMULATION_NAME }}</th>
-        <th>{{ ParameterName.POPULATION }}</th>
-        <th>{{ ParameterName.INIT_INFECTED }}</th>
-        <th>{{ ParameterName.REPRODUCTION_NUM }}</th>
-        <th>{{ ParameterName.MORALITY }}</th>
-        <th>{{ ParameterName.RECOVERY_TIME }}</th>
-        <th>{{ ParameterName.DEATH_TIME }}</th>
-        <th>{{ ParameterName.SIMULATION_TIME }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let sim of simulationParametersList">
-        <td>{{ sim.id }}</td>
-        <td>{{ sim.simulationName }}</td>
-        <td>{{ sim.population }}</td>
-        <td>{{ sim.initInfected }}</td>
-        <td>{{ sim.reproductionNum }}</td>
-        <td>{{ sim.mortality }}</td>
-        <td>{{ sim.recoveryTime }}</td>
-        <td>{{ sim.deathTime }}</td>
-        <td>{{ sim.simulationTime }}</td>
-        <!-- TODO change it to give link for whole row and ad delete option-->
-        <td><a routerLink="/simulations/{{ sim.id }}">View Details</a></td>
-      </tr>
-    </tbody>
-  </table>
-</div>

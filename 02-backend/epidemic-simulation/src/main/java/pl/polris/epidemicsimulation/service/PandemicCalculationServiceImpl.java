@@ -25,9 +25,9 @@ public class PandemicCalculationServiceImpl implements PandemicCalculationServic
 
         int simulationID = simulationParameters.getId();
         long population = simulationParameters.getPopulation();
-        long initiallyInfectedPopulation = simulationParameters.getInitiallyInfectedPopulation();
-        double reproductionNumber = simulationParameters.getReproductionNumber();
-        double mortality = simulationParameters.getMortality();
+        long initiallyInfectedPopulation = simulationParameters.getInitInfected();
+        double reproductionNumber = simulationParameters.getReproductionNum();
+        double mortality = simulationParameters.getMorality();
         int recoveryTime = simulationParameters.getRecoveryTime();
         int deathTime = simulationParameters.getDeathTime();
         int simulationTime = simulationParameters.getSimulationTime();
@@ -38,10 +38,9 @@ public class PandemicCalculationServiceImpl implements PandemicCalculationServic
             long proneToInfection = 1;
             long dead = 1;
             long recovered = 1;
-            int day = i;
 
             //TODO What about simulation parameters id??
-            SimulationResult simulationResult = new SimulationResult(day, infected, proneToInfection, dead, recovered);
+            SimulationResult simulationResult = new SimulationResult(i, infected, proneToInfection, dead, recovered);
             simulationResult.setId(0);
             simulationResult.setSimulationParameters(simulationParameters);
             simulationResultRepository.save(simulationResult);

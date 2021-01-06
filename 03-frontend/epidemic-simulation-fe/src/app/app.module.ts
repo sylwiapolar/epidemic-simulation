@@ -20,7 +20,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     SimulationsListComponent,
-    SimulationDetailsComponent
+    SimulationDetailsComponent,
+    SimulationsListComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
