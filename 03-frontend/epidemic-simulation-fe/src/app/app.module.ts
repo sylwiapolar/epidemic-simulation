@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SimulationService } from './services/simulation.service';
 import { Routes, RouterModule } from '@angular/router';
 import { SimulationDetailsComponent } from './components/simulation-details/simulation-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: 'simulations/:id', component: SimulationDetailsComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [SimulationService],
   bootstrap: [AppComponent]

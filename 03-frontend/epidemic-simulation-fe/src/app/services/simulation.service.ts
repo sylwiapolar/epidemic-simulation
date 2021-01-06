@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { SimulationDetails } from '../common/simulation-details';
+import { SimulationParameters } from '../common/simulation-parameters';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,7 @@ export class SimulationService {
     return this.httpClient.get<SimulationDetails>(simulationUrl);
   }
 
-  
+  submitSimulation(simulationParameters){    
+    return this.httpClient.post<SimulationParameters>(this.baseUrl, simulationParameters);
+  }
 }

@@ -1,43 +1,58 @@
 <div class="simulationList-section">
   <div>
-    <!-- TODO fill in action-->
-    <!-- <form action="/simulations" method="POST"> -->
-    <form [formGroup]="">
-      <fieldset>
-        <label for="simName"> {{ ParameterName.SIMULATION_NAME }}:</label>
-        <input type="text" id="simName" name="simName">
+    <!-- (ngSubmit)="onSubmit(checkoutForm.value)" -->
+    <form [formGroup]="simulationForm" (ngSubmit)="submitSimulation()">
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="simName"> {{ ParameterName.SIMULATION_NAME }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="text" id="simName" formControlName="simName">
+        </div>
       </fieldset>
-      <fieldset>
-        <label for="population">{{ ParameterName.POPULATION }}:</label>
-        <input type="number" id="population" name="population" min="1" step="1" required>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="population">{{ ParameterName.POPULATION }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="population" formControlName="population" name="population" step="1">
+        </div>
       </fieldset>
-      <fieldset>
-        <label for="initInfected">{{ ParameterName.INIT_INFECTED }}:</label>
-        <input type="number" id="initInfected" name="initInfected" min="1" step="1" required>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="initInfected">{{ ParameterName.INIT_INFECTED }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="initInfected" formControlName="initInfected" step="1">
+        </div>
       </fieldset>
-      <fieldset>
-        <label for="reproductionNum">{{ ParameterName.REPRODUCTION_NUM }}:</label>
-        <input type="number" id="reproductionNum" name="reproductionNum" min="1" step="0.01" required>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="reproductionNum">{{ ParameterName.REPRODUCTION_NUM }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="reproductionNum" formControlName="reproductionNum" step="0.01">
+        </div>
       </fieldset>
-      <fieldset>
-        <label for="morality">{{ ParameterName.MORALITY }}:</label>
-        <input type="number" id="morality" name="morality" min="1" step="0.1" required>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="morality">{{ ParameterName.MORALITY }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="morality" formControlName="morality" step="0.1">
+        </div>
       </fieldset>
-      <fieldset>
-        <label for="recoveryTime">{{ ParameterName.RECOVERY_TIME }}:</label>
-        <input type="number" id="recoveryTime" name="recoveryTime" min="1" step="1" required>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="recoveryTime">{{ ParameterName.RECOVERY_TIME }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="recoveryTime" formControlName="recoveryTime" step="1">
+        </div>
       </fieldset>
-      <fieldset>
-        <label for="deathTime">{{ ParameterName.DEATH_TIME }}:</label>
-        <input type="number" id="deathTime" name="deathTime" min="1" step="1" required>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="deathTime">{{ ParameterName.DEATH_TIME }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="deathTime" formControlName="deathTime" step="1">
+        </div>
       </fieldset>
-      <fieldset>
-        <label for="simulationTime">{{ ParameterName.SIMULATION_TIME }}:</label>
-        <input type="number" id="simulationTime" name="simulationTime" min="1" step="1" required>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="simulationTime">{{ ParameterName.SIMULATION_TIME }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="simulationTime" formControlName="simulationTime" step="1">
+        </div>
       </fieldset>
 
       <button type="reset" class="btn btn-outline-secondary">Clear</button>
-      <button type="submit" class="btn btn-primary" >Add Simulation</button>
+      <button type="submit" [disabled]="simulationForm.invalid" class="btn btn-primary">Add Simulation</button>
     </form>
   </div>
 
@@ -60,8 +75,8 @@
         <td>{{ sim.id }}</td>
         <td>{{ sim.simulationName }}</td>
         <td>{{ sim.population }}</td>
-        <td>{{ sim.initiallyInfectedPopulation }}</td>
-        <td>{{ sim.reproductionNumber }}</td>
+        <td>{{ sim.initInfected }}</td>
+        <td>{{ sim.reproductionNum }}</td>
         <td>{{ sim.mortality }}</td>
         <td>{{ sim.recoveryTime }}</td>
         <td>{{ sim.deathTime }}</td>
