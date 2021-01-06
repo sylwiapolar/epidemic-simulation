@@ -8,6 +8,7 @@ import { SimulationService } from './services/simulation.service';
 import { Routes, RouterModule } from '@angular/router';
 import { SimulationDetailsComponent } from './components/simulation-details/simulation-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddSimulationFormComponent } from './components/add-simulation-form/add-simulation-form.component';
 
 const routes: Routes = [
   {path: 'simulations/:id', component: SimulationDetailsComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
     AppComponent,
     SimulationsListComponent,
     SimulationDetailsComponent,
-    SimulationsListComponent
+    SimulationsListComponent,
+    AddSimulationFormComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
