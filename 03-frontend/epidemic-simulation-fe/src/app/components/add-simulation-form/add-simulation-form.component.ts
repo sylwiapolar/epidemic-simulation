@@ -27,11 +27,11 @@ export class AddSimulationFormComponent implements OnInit {
 
   createForm() {
     this.simulationForm = this.formBuilder.group({
-      simulationName: new FormControl('', [Validators.required]),
+      simulationName: new FormControl('', [Validators.required, Validators.pattern("[\w,./_=?-]+")]),
       population: new FormControl('', [Validators.required, Validators.min(1)]),
       initInfected: new FormControl('', [Validators.required, Validators.min(1)]),
-      reproductionNum: new FormControl('', [Validators.required]),
-      morality: new FormControl('', [Validators.required]),
+      reproductionNum: new FormControl('', [Validators.required, Validators.min(0)]),
+      morality: new FormControl('', [Validators.required, Validators.min(0), Validators.max(1)]),
       recoveryTime: new FormControl('', [Validators.required, Validators.min(1)]),
       deathTime: new FormControl('', [Validators.required, Validators.min(1)]),
       simulationTime: new FormControl('', [Validators.required, Validators.min(1)])

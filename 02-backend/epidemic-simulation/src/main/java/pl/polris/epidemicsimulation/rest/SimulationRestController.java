@@ -64,11 +64,14 @@ public class SimulationRestController {
     }
 
     // Edit simulation
-    //TODO simulation edition adds new results, but doesn't delete old results - it needs to be corrected
+    //TODO  Provide validation for wrong id's
     @PutMapping("/simulations")
     public SimulationDetails updateSimulation(@RequestBody SimulationParameters simulationParameters) {
 
-        System.out.println("simulation parameters id from FE: " + simulationParameters.getId());
+//        System.out.println("simulation parameters id from FE: " + simulationParameters.getId());
+
+        deleteSimulationResult(simulationParameters.getId());
+
         simulationService.save(simulationParameters);
         pandemicCalculationService.performCalculation(simulationParameters);
         List<SimulationResult> simulationResultList = simulationResultService.findAllBySimulationId(simulationParameters.getId());
@@ -90,5 +93,14 @@ public class SimulationRestController {
         return "Deleted simulation id: " + simulationId;
     }
 
+
+    public void deleteSimulationResult(int simulationId) {
+        List<SimulationResult> oldSimulationResultList = simulationResultService.findAllBySimulationId(simulationId);
+
+        for( SimulationResult tempSimRes : oldSimulationResultList) {
+            int simulationResultId = tempSimRes.getId();
+            simulationResultService.deleteById(simulationResultId);
+        }
+    }
 }
 
