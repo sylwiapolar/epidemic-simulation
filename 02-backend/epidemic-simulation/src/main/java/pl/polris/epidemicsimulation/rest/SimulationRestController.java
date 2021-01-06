@@ -68,6 +68,7 @@ public class SimulationRestController {
     @PutMapping("/simulations")
     public SimulationDetails updateSimulation(@RequestBody SimulationParameters simulationParameters) {
 
+        System.out.println("simulation parameters id from FE: " + simulationParameters.getId());
         simulationService.save(simulationParameters);
         pandemicCalculationService.performCalculation(simulationParameters);
         List<SimulationResult> simulationResultList = simulationResultService.findAllBySimulationId(simulationParameters.getId());

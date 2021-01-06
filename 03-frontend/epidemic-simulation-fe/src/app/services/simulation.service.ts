@@ -24,15 +24,21 @@ export class SimulationService {
     return this.httpClient.get<SimulationDetails>(simulationUrl);
   }
 
-  submitSimulation(simulationParameters){    
+  submitSimulation(simulationParameters: SimulationParameters){    
     return this.httpClient.post<SimulationParameters>(this.baseUrl, simulationParameters);
   }
 
-  //TODO Refactor code to delete simulation
   deleteSimulation(simulationId: number): Observable<any> {
     const simulationUrl = `${this.baseUrl}/${simulationId}`;
     return this.httpClient.delete(simulationUrl, {responseType: 'text'});
   }
 
+
+  //TODO
+  editSimulation(simulationParameters: SimulationParameters): Observable<SimulationDetails> {
+    // const simulationUrl = `${this.baseUrl}/${simulationId}`;
+    return this.httpClient.put<SimulationDetails>(this.baseUrl, simulationParameters);
+  }
+  
 
 }

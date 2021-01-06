@@ -12,7 +12,7 @@ import { SimulationService } from 'src/app/services/simulation.service';
 export class AddSimulationFormComponent implements OnInit {
 
   ParameterName = ParameterName;
-  simulationForm;
+  simulationForm: FormGroup;
 
   constructor(
     private simulationService: SimulationService,

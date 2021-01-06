@@ -5,7 +5,7 @@ export class SimulationParameters {
     population: number;
     initInfected: number;
     reproductionNum: number;
-    mortality: number;
+    morality: number;
     recoveryTime: number;
     deathTime: number;
     simulationTime: number;

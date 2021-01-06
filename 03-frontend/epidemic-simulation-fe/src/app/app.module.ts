@@ -9,9 +9,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { SimulationDetailsComponent } from './components/simulation-details/simulation-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddSimulationFormComponent } from './components/add-simulation-form/add-simulation-form.component';
+import { EditSimulationComponent } from './components/edit-simulation/edit-simulation.component';
 
 const routes: Routes = [
   {path: 'simulations/:id', component: SimulationDetailsComponent},
+  {path: 'edit-simulation/:id', component: EditSimulationComponent},
   {path: 'simulations', component: SimulationsListComponent},
   {path: '', redirectTo: '/simulations', pathMatch: 'full'},
   {path: '**', redirectTo: '/simulations', pathMatch: 'full'}
@@ -23,7 +25,8 @@ const routes: Routes = [
     SimulationsListComponent,
     SimulationDetailsComponent,
     SimulationsListComponent,
-    AddSimulationFormComponent
+    AddSimulationFormComponent,
+    EditSimulationComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

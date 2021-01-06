@@ -1,3 +1,10 @@
+<!-- LINK TO BACK TO LIST OF SIMULATIONS -->
+
+<a routerLink="/simulations">List of Simulations</a>
+
+<!-- LINK TO BACK TO LIST OF SIMULATIONS -->
+
+<!-- TABLE WITH SIMULATION RESULTS -->
 <div class="details-section">
     <h2>Simulation Results</h2>
     <table class="table table-hover">
@@ -9,6 +16,7 @@
                 <th>[Pv] Prone to infection</th>
                 <th>[Pm] Dead</th>
                 <th>[Pr] Recovered</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -20,9 +28,11 @@
                 <td>{{ simResult.dead }}</td>
                 <td>{{ simResult.recovered }}</td>
                 <!-- TODO change it to main page -->
-                <td><a routerLink="/simulations">List of Simulations</a></td>
+                <td><a [routerLink]="['/edit-simulation', simulationDetails.simulationParameters.id ]">EDIT</a></td>
             </tr>
         </tbody>
     </table>
 
 </div>
+
+<!-- END OF TABLE WITH SIMULATION RESULTS -->
