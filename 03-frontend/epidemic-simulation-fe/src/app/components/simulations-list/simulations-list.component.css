@@ -1,0 +1,22 @@
+.simulation-list-top{
+    height: 100%;
+    position: relative;
+}
+
+
+.simulation-list-top::after {
+    content: "";
+    padding: 0;
+    background-image: url('/assets/images/cov19_1.tif');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.7;
+    position: absolute;
+    z-index: -1;
+}
+

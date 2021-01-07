@@ -10,6 +10,8 @@ import { SimulationDetailsComponent } from './components/simulation-details/simu
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddSimulationFormComponent } from './components/add-simulation-form/add-simulation-form.component';
 import { EditSimulationComponent } from './components/edit-simulation/edit-simulation.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { ChartsModule } from 'ng2-charts';
 
 const routes: Routes = [
   {path: 'simulations/:id', component: SimulationDetailsComponent},
@@ -26,13 +28,15 @@ const routes: Routes = [
     SimulationDetailsComponent,
     SimulationsListComponent,
     AddSimulationFormComponent,
-    EditSimulationComponent
+    EditSimulationComponent,
+    ChartsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartsModule
   ],
   providers: [SimulationService],
   bootstrap: [AppComponent]

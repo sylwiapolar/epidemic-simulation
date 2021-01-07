@@ -1,0 +1,25 @@
+.addSimulation-section {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 5%;
+}
+
+.form-group {
+    margin-left: 5%;
+    margin-bottom: 0.55rem;
+}
+
+.col-form-label {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    
+}
+
+input {
+    font-size: 0.9rem;
+}
+
+.big-button{
+    margin: 2% 15px 0% 2%;
+    min-width: 50px;
+}

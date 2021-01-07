@@ -1,44 +1,58 @@
-<!-- FORM TO ADD NEW SIMULATION -->
+<div class="container-fluid">
 
-<app-add-simulation-form></app-add-simulation-form>
+  <div class="simulation-list-top row">
 
-<!-- END OF FORM TO ADD NEW SIMULATION -->
+    <div class="col-8"></div>
+
+    <!-- FORM TO ADD NEW SIMULATION -->
+    <div class="col-md-4">
+        <app-add-simulation-form></app-add-simulation-form>
+    </div>
+    <!-- END OF FORM TO ADD NEW SIMULATION -->
+
+  </div>
 
 
-<!-- TABLE WITH ALL SIMULATIONS PARAMETERS -->
+  <!-- TABLE WITH ALL SIMULATIONS PARAMETERS -->
 
-<div>
-  <table class="table table-hover">
-    <thead class="thead-dark">
-      <tr>
-        <th>{{ ParameterName.ID }}</th>
-        <th>{{ ParameterName.SIMULATION_NAME }}</th>
-        <th>{{ ParameterName.POPULATION }}</th>
-        <th>{{ ParameterName.INIT_INFECTED }}</th>
-        <th>{{ ParameterName.REPRODUCTION_NUM }}</th>
-        <th>{{ ParameterName.MORALITY }}</th>
-        <th>{{ ParameterName.RECOVERY_TIME }}</th>
-        <th>{{ ParameterName.DEATH_TIME }}</th>
-        <th>{{ ParameterName.SIMULATION_TIME }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let sim of simulationParametersList">
-        <td>{{ sim.id }}</td>
-        <td>{{ sim.simulationName }}</td>
-        <td>{{ sim.population }}</td>
-        <td>{{ sim.initInfected }}</td>
-        <td>{{ sim.reproductionNum }}</td>
-        <td>{{ sim.mortality }}</td>
-        <td>{{ sim.recoveryTime }}</td>
-        <td>{{ sim.deathTime }}</td>
-        <td>{{ sim.simulationTime }}</td>
-        <!-- TODO change it to give link for whole row and ad delete option-->
-        <td><a routerLink="/simulations/{{ sim.id }}">View Details</a></td>
-        <td><button (click)="deleteSimulation(sim.id)" type="button" >Delete</button></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="ml-5 mr-5 mb-5">
+    <h2 class="mt-5 mb-4">List of Simulations</h2>
+    <table class="table table-hover table-sm">
+      <thead>
+        <tr>
+          <th>{{ ParameterName.ID }}</th>
+          <th>{{ ParameterName.SIMULATION_NAME }}</th>
+          <th>{{ ParameterName.POPULATION }}</th>
+          <th>{{ ParameterName.INIT_INFECTED }}</th>
+          <th>{{ ParameterName.REPRODUCTION_NUM }}</th>
+          <th>{{ ParameterName.MORALITY }}</th>
+          <th>{{ ParameterName.RECOVERY_TIME }}</th>
+          <th>{{ ParameterName.DEATH_TIME }}</th>
+          <th>{{ ParameterName.SIMULATION_TIME }}</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sim of simulationParametersList">
+          <td>{{ sim.id }}</td>
+          <td>{{ sim.simulationName }}</td>
+          <td>{{ sim.population }}</td>
+          <td>{{ sim.initInfected }}</td>
+          <td>{{ sim.reproductionNum }}</td>
+          <td>{{ sim.morality }}</td>
+          <td>{{ sim.recoveryTime }}</td>
+          <td>{{ sim.deathTime }}</td>
+          <td>{{ sim.simulationTime }}</td>
+          <!-- TODO change it to give link for whole row and ad delete option-->
+          <td class="text-center"><a routerLink="/simulations/{{ sim.id }}" class="btn btn-outline-secondary btn-sm">Details</a></td>
+          <td class="text-center"><button (click)="deleteSimulation(sim.id)" type="button"
+              class="btn btn-outline-warning btn-sm">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- END OF TABLE WITH ALL SIMULATIONS PARAMETERS -->
+
 </div>
-
-<!-- END OF TABLE WITH ALL SIMULATIONS PARAMETERS -->

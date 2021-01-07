@@ -1,0 +1,9 @@
+<div style="display: block;" *ngIf="simulationChartData">
+    <canvas baseChart
+             [datasets]="simulationChartData"
+             [labels]="simulationLabels"
+             [options]="simulationOptions"
+             [legend]="simulationChartLegend"
+             [chartType]="simulationChartType"></canvas>
+
+</div>

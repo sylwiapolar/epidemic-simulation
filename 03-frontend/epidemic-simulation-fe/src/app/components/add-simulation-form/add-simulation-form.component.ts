@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ParameterName } from 'src/app/common/parameter-name';
 import { SimulationService } from 'src/app/services/simulation.service';
@@ -13,6 +13,7 @@ export class AddSimulationFormComponent implements OnInit {
 
   ParameterName = ParameterName;
   simulationForm: FormGroup;
+  @ViewChild('simulationName') nameElementRef: ElementRef;
 
   constructor(
     private simulationService: SimulationService,
@@ -24,10 +25,13 @@ export class AddSimulationFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngAfterViewInit(){
+    this.nameElementRef.nativeElement.focus();
+  }
 
   createForm() {
     this.simulationForm = this.formBuilder.group({
-      simulationName: new FormControl('', [Validators.required, Validators.pattern("[\w,./_=?-]+")]),
+      simulationName: new FormControl('', [Validators.required]),
       population: new FormControl('', [Validators.required, Validators.min(1)]),
       initInfected: new FormControl('', [Validators.required, Validators.min(1)]),
       reproductionNum: new FormControl('', [Validators.required, Validators.min(0)]),

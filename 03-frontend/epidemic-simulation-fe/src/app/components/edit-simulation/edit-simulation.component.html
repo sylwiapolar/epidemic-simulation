@@ -2,60 +2,70 @@
 
 <!-- TODO provide validation for - infected < population itp -->
 <div class="simulationList-section">
-    <div>
-      <form [formGroup]="simulationEditForm" (ngSubmit)="editSimulation()">
-        <fieldset class="form-group row">
-          <label class="col-sm-3 col-form-label" for="simulationName"> {{ ParameterName.SIMULATION_NAME }}:</label>
-          <div class="col-sm-4">
-            <input class="form-control" type="text" id="simulationName" formControlName="simulationName">
-          </div>
-        </fieldset>
-        <fieldset class="form-group row">
-          <label class="col-sm-3 col-form-label" for="population">{{ ParameterName.POPULATION }}:</label>
-          <div class="col-sm-4">
-            <input class="form-control" type="number" id="population" formControlName="population" name="population" step="1">
-          </div>
-        </fieldset>
-        <fieldset class="form-group row">
-          <label class="col-sm-3 col-form-label" for="initInfected">{{ ParameterName.INIT_INFECTED }}:</label>
-          <div class="col-sm-4">
-            <input class="form-control" type="number" id="initInfected" formControlName="initInfected" step="1">
-          </div>
-        </fieldset>
-        <fieldset class="form-group row">
-          <label class="col-sm-3 col-form-label" for="reproductionNum">{{ ParameterName.REPRODUCTION_NUM }}:</label>
-          <div class="col-sm-4">
-            <input class="form-control" type="number" id="reproductionNum" formControlName="reproductionNum" step="0.01">
-          </div>
-        </fieldset>
-        <fieldset class="form-group row">
-          <label class="col-sm-3 col-form-label" for="morality">{{ ParameterName.MORALITY }}:</label>
-          <div class="col-sm-4">
-            <input class="form-control" type="number" id="morality" formControlName="morality" step="0.1">
-          </div>
-        </fieldset>
-        <fieldset class="form-group row">
-          <label class="col-sm-3 col-form-label" for="recoveryTime">{{ ParameterName.RECOVERY_TIME }}:</label>
-          <div class="col-sm-4">
-            <input class="form-control" type="number" id="recoveryTime" formControlName="recoveryTime" step="1">
-          </div>
-        </fieldset>
-        <fieldset class="form-group row">
-          <label class="col-sm-3 col-form-label" for="deathTime">{{ ParameterName.DEATH_TIME }}:</label>
-          <div class="col-sm-4">
-            <input class="form-control" type="number" id="deathTime" formControlName="deathTime" step="1">
-          </div>
-        </fieldset>
-        <fieldset class="form-group row">
-          <label class="col-sm-3 col-form-label" for="simulationTime">{{ ParameterName.SIMULATION_TIME }}:</label>
-          <div class="col-sm-4">
-            <input class="form-control" type="number" id="simulationTime" formControlName="simulationTime" step="1">
-          </div>
-        </fieldset>
-  
-        <button type="reset" class="btn btn-outline-secondary">Clear</button>
-        <button type="submit" [disabled]="simulationEditForm.invalid" class="btn btn-primary">Edit Simulation</button>
-      </form>
-    </div>
+  <div class="row ml-4 mt-4">
+    <h2 class="mb-3">Edit Simulation:</h2>
+  </div>
 
-<!-- END OF FORM TO EDIT SIMULATION -->
+  <div class="row">
+    <form [formGroup]="simulationEditForm" (ngSubmit)="editSimulation()" class="col-6 offset-3">
+      <fieldset class="form-group row">
+        <label class="col-sm-2 col-form-label" for="simulationName"> {{ ParameterName.SIMULATION_NAME }}:</label>
+        <div class="col-sm-9">
+          <input class="form-control" type="text" id="simulationName" formControlName="simulationName">
+        </div>
+      </fieldset>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="population">{{ ParameterName.POPULATION }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="population" formControlName="population" name="population"
+            step="1">
+        </div>
+      </fieldset>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="initInfected">{{ ParameterName.INIT_INFECTED }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="initInfected" formControlName="initInfected" step="1">
+        </div>
+      </fieldset>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="reproductionNum">{{ ParameterName.REPRODUCTION_NUM }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="reproductionNum" formControlName="reproductionNum" step="0.01">
+        </div>
+      </fieldset>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="morality">{{ ParameterName.MORALITY }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="morality" formControlName="morality" step="0.1">
+        </div>
+      </fieldset>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="recoveryTime">{{ ParameterName.RECOVERY_TIME }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="recoveryTime" formControlName="recoveryTime" step="1">
+        </div>
+      </fieldset>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="deathTime">{{ ParameterName.DEATH_TIME }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="deathTime" formControlName="deathTime" step="1">
+        </div>
+      </fieldset>
+      <fieldset class="form-group row">
+        <label class="col-sm-3 col-form-label" for="simulationTime">{{ ParameterName.SIMULATION_TIME }}:</label>
+        <div class="col-sm-4">
+          <input class="form-control" type="number" id="simulationTime" formControlName="simulationTime" step="1">
+        </div>
+      </fieldset>
+
+      <div class="row">
+        <div class="col text-right">
+          <button type="reset" class="btn btn-outline-secondary big-button">Clear</button>
+          <button type="submit" [disabled]="simulationEditForm.invalid" class="btn btn-warning big-button">Edit</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- END OF FORM TO EDIT SIMULATION -->

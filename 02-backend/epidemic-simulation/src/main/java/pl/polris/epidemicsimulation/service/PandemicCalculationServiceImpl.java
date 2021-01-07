@@ -41,13 +41,13 @@ public class PandemicCalculationServiceImpl implements PandemicCalculationServic
         long infected = initiallyInfectedPopulation;
         long proneToInfection = population - infected;
 
-        long infectedToday = 0L;
+        long infectedToday = initiallyInfectedPopulation;
         long deadToday = 0L;
         long recoveredToday;
 
         List<DailyReport> dailyReportList = new ArrayList<>();
 
-        DailyReport dailyReport = new DailyReport(0, infected, proneToInfection, dead, recovered, infected, deadToday);
+        DailyReport dailyReport = new DailyReport(0, infected, proneToInfection, dead, recovered, initiallyInfectedPopulation, deadToday);
         dailyReportList.add(dailyReport);
 
         SimulationResult simulationResult = new SimulationResult(0, infected, proneToInfection, dead, recovered);
@@ -62,8 +62,8 @@ public class PandemicCalculationServiceImpl implements PandemicCalculationServic
                 break;
             }
 
-            if ((i < recoveryTime) && (i < deathTime) && proneToInfection > 0) {
-                //Uproszczenie - ilość zarażonych zaokrąglamy w dół
+            if ((i < recoveryTime) && (i < deathTime) && proneToInfection >= 0) {
+                //TODO write as a comment - Simplicity - number of infected round to floor
                 infectedToday = (long) (infected * reproductionNumber);
 
                 if (infectedToday >= proneToInfection) {
@@ -97,7 +97,7 @@ public class PandemicCalculationServiceImpl implements PandemicCalculationServic
                 System.out.println("Day: " + (i));
                 System.out.println("Dead today: " + deadToday + " " + (morality * (dailyReportList.get(i - deathTime).getInfectedToday())));
                 System.out.println("morality: " + morality);
-                System.out.println("Infected that day: " + (dailyReportList.get(i - deathTime).getInfectedToday()));
+                System.out.println("Infected that day (death): " + (dailyReportList.get(i - deathTime).getInfectedToday()));
                 System.out.println("Infected today: " + infectedToday);
                 System.out.println("Infected total: " + infected);
                 System.out.println("Dead total: " + dead);
@@ -119,13 +119,13 @@ public class PandemicCalculationServiceImpl implements PandemicCalculationServic
                 dead += deadToday;
                 infected -= deadToday;
 
+                //Recovered today = infected recoveryTime(days) before today - dead of those, who were infected that day
                 recoveredToday = dailyReportList.get(i - recoveryTime).getInfectedToday()
-                        - dailyReportList.get((i - recoveryTime) + deathTime).getDeadToday();
+                        - dailyReportList.get(i - recoveryTime + deathTime).getDeadToday();
                 recovered += recoveredToday;
                 infected -= recoveredToday;
 
                 infectedToday = (long) (infected * reproductionNumber);
-
                 if (infectedToday >= proneToInfection) {
                     infectedToday = proneToInfection;
                 }
@@ -136,7 +136,8 @@ public class PandemicCalculationServiceImpl implements PandemicCalculationServic
                 System.out.println("===================== 3 if ========================");
                 System.out.println("Day: " + (i));
                 System.out.println("Dead today: " + deadToday + " " + (morality * (dailyReportList.get(i - deathTime).getInfectedToday())));
-                System.out.println("Infected that day: " + (dailyReportList.get(i - deathTime).getInfectedToday()));
+                System.out.println("Infected that day (death): " + (dailyReportList.get(i - deathTime).getInfectedToday()));
+                System.out.println("Infected that day (recover): " + (dailyReportList.get(i - recoveryTime).getInfectedToday()));
                 System.out.println("Infected today: " + infectedToday);
                 System.out.println("Recovered today: " + recoveredToday + " without casting: " +
                         (dailyReportList.get(i - recoveryTime).getInfectedToday()

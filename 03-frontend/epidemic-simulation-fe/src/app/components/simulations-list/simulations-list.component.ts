@@ -29,7 +29,7 @@ export class SimulationsListComponent implements OnInit {
     )
   }
 
-  deleteSimulation(simulationId){
+  deleteSimulation(simulationId: number){
     this.simulationService.deleteSimulation(simulationId).subscribe(
       data => console.log(data)
     );
