@@ -45,7 +45,7 @@
           <td>{{ sim.deathTime }}</td>
           <td>{{ sim.simulationTime }}</td>
           <!-- TODO change it to give link for whole row and ad delete option-->
-          <td class="text-center"><a routerLink="/simulations/{{ sim.id }}" class="btn btn-outline-secondary btn-sm">Details</a></td>
+          <td class="text-center"><a routerLink="/simulation/{{ sim.id }}" class="btn btn-outline-secondary btn-sm">Details</a></td>
           <td class="text-center"><button (click)="deleteSimulation(sim.id)" type="button"
               class="btn btn-outline-warning btn-sm">Delete</button></td>
         </tr>

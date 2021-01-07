@@ -12,6 +12,7 @@ export class SimulationService {
 
   // TODO refactor url from hardcoded
   private baseUrl = 'http://localhost:8080/api/simulations';
+  private baseUrlSimulation = 'http://localhost:8080/api/simulation';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -20,24 +21,21 @@ export class SimulationService {
   }
 
   getSimulationDetails(simulationId: number): Observable<SimulationDetails> {
-    const simulationUrl = `${this.baseUrl}/${simulationId}`;
+    const simulationUrl = `${this.baseUrlSimulation}/${simulationId}`;
     return this.httpClient.get<SimulationDetails>(simulationUrl);
   }
 
   submitSimulation(simulationParameters: SimulationParameters){    
-    return this.httpClient.post<SimulationParameters>(this.baseUrl, simulationParameters);
+    return this.httpClient.post<SimulationParameters>(this.baseUrlSimulation, simulationParameters);
   }
 
   deleteSimulation(simulationId: number): Observable<any> {
-    const simulationUrl = `${this.baseUrl}/${simulationId}`;
+    const simulationUrl = `${this.baseUrlSimulation}/${simulationId}`;
     return this.httpClient.delete(simulationUrl, {responseType: 'text'});
   }
 
-
-  //TODO
   editSimulation(simulationParameters: SimulationParameters): Observable<SimulationDetails> {
-    // const simulationUrl = `${this.baseUrl}/${simulationId}`;
-    return this.httpClient.put<SimulationDetails>(this.baseUrl, simulationParameters);
+    return this.httpClient.put<SimulationDetails>(this.baseUrlSimulation, simulationParameters);
   }
   
   

@@ -27,7 +27,6 @@ public class PandemicCalculationServiceImpl implements PandemicCalculationServic
             return;
         }
 
-//        int simulationID = simulationParameters.getId();
         long population = simulationParameters.getPopulation();
         long initiallyInfectedPopulation = simulationParameters.getInitInfected();
         double reproductionNumber = simulationParameters.getReproductionNum();
@@ -63,7 +62,6 @@ public class PandemicCalculationServiceImpl implements PandemicCalculationServic
             }
 
             if ((i < recoveryTime) && (i < deathTime) && proneToInfection >= 0) {
-                //TODO write as a comment - Simplicity - number of infected round to floor
                 infectedToday = (long) (infected * reproductionNumber);
 
                 if (infectedToday >= proneToInfection) {

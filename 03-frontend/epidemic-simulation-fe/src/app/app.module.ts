@@ -14,7 +14,7 @@ import { ChartsComponent } from './components/charts/charts.component';
 import { ChartsModule } from 'ng2-charts';
 
 const routes: Routes = [
-  {path: 'simulations/:id', component: SimulationDetailsComponent},
+  {path: 'simulation/:id', component: SimulationDetailsComponent},
   {path: 'edit-simulation/:id', component: EditSimulationComponent},
   {path: 'simulations', component: SimulationsListComponent},
   {path: '', redirectTo: '/simulations', pathMatch: 'full'},

@@ -9,6 +9,5 @@ import java.util.List;
 @Service
 public interface PandemicCalculationService {
 
-    //TODO refactor method
     public void performCalculation(SimulationParameters simulationParameters);
 }

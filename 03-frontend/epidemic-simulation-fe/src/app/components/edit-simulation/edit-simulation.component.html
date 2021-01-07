@@ -1,65 +1,65 @@
 <!-- FORM TO EDIT SIMULATION -->
 
 <!-- TODO provide validation for - infected < population itp -->
-<div class="simulationList-section">
+<div class="simulationList-section container-fluid">
   <div class="row ml-4 mt-4">
     <h2 class="mb-3">Edit Simulation:</h2>
   </div>
 
   <div class="row">
-    <form [formGroup]="simulationEditForm" (ngSubmit)="editSimulation()" class="col-6 offset-3">
+    <form [formGroup]="simulationEditForm" (ngSubmit)="editSimulation()" class="form-horizontal col-4 offset-4 mb-4">
       <fieldset class="form-group row">
         <label class="col-sm-2 col-form-label" for="simulationName"> {{ ParameterName.SIMULATION_NAME }}:</label>
-        <div class="col-sm-9">
+        <div class="col-sm-10 pr-0">
           <input class="form-control" type="text" id="simulationName" formControlName="simulationName">
         </div>
       </fieldset>
       <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="population">{{ ParameterName.POPULATION }}:</label>
-        <div class="col-sm-4">
+        <label class="col-sm-2 col-form-label" for="population">{{ ParameterName.POPULATION }}:</label>
+        <div class="col-sm-10 pr-0">
           <input class="form-control" type="number" id="population" formControlName="population" name="population"
             step="1">
         </div>
       </fieldset>
       <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="initInfected">{{ ParameterName.INIT_INFECTED }}:</label>
-        <div class="col-sm-4">
+        <label class="col-sm-2 col-form-label" for="initInfected">{{ ParameterName.INIT_INFECTED }}:</label>
+        <div class="col-sm-10 pr-0">
           <input class="form-control" type="number" id="initInfected" formControlName="initInfected" step="1">
         </div>
       </fieldset>
       <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="reproductionNum">{{ ParameterName.REPRODUCTION_NUM }}:</label>
-        <div class="col-sm-4">
+        <label class="col-sm-2 col-form-label" for="reproductionNum">{{ ParameterName.REPRODUCTION_NUM }}:</label>
+        <div class="col-sm-10 pr-0">
           <input class="form-control" type="number" id="reproductionNum" formControlName="reproductionNum" step="0.01">
         </div>
       </fieldset>
       <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="morality">{{ ParameterName.MORALITY }}:</label>
-        <div class="col-sm-4">
+        <label class="col-sm-2 col-form-label" for="morality">{{ ParameterName.MORALITY }}:</label>
+        <div class="col-sm-10 pr-0">
           <input class="form-control" type="number" id="morality" formControlName="morality" step="0.1">
         </div>
       </fieldset>
       <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="recoveryTime">{{ ParameterName.RECOVERY_TIME }}:</label>
-        <div class="col-sm-4">
+        <label class="col-sm-2 col-form-label" for="recoveryTime">{{ ParameterName.RECOVERY_TIME }}:</label>
+        <div class="col-sm-10 pr-0">
           <input class="form-control" type="number" id="recoveryTime" formControlName="recoveryTime" step="1">
         </div>
       </fieldset>
       <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="deathTime">{{ ParameterName.DEATH_TIME }}:</label>
-        <div class="col-sm-4">
+        <label class="col-sm-2 col-form-label" for="deathTime">{{ ParameterName.DEATH_TIME }}:</label>
+        <div class="col-sm-10 pr-0">
           <input class="form-control" type="number" id="deathTime" formControlName="deathTime" step="1">
         </div>
       </fieldset>
       <fieldset class="form-group row">
-        <label class="col-sm-3 col-form-label" for="simulationTime">{{ ParameterName.SIMULATION_TIME }}:</label>
-        <div class="col-sm-4">
+        <label class="col-sm-2 col-form-label" for="simulationTime">{{ ParameterName.SIMULATION_TIME }}:</label>
+        <div class="col-sm-10 pr-0">
           <input class="form-control" type="number" id="simulationTime" formControlName="simulationTime" step="1">
         </div>
       </fieldset>
 
       <div class="row">
-        <div class="col text-right">
+        <div class="col text-right pr-0">
           <button type="reset" class="btn btn-outline-secondary big-button">Clear</button>
           <button type="submit" [disabled]="simulationEditForm.invalid" class="btn btn-warning big-button">Edit</button>
         </div>
