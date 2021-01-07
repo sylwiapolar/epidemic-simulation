@@ -3,6 +3,7 @@ package pl.polris.epidemicsimulation.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import pl.polris.epidemicsimulation.constants.RoutingParameters;
 import pl.polris.epidemicsimulation.entity.SimulationDetails;
 import pl.polris.epidemicsimulation.entity.SimulationParameters;
 import pl.polris.epidemicsimulation.entity.SimulationResult;
@@ -13,7 +14,7 @@ import pl.polris.epidemicsimulation.service.SimulationService;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = RoutingParameters.ORIGIN_URL)
 @RequestMapping("/api")
 public class SimulationRestController {
 
@@ -30,13 +31,13 @@ public class SimulationRestController {
     }
 
     // Returns list of simulations
-    @GetMapping("/simulations")
+    @GetMapping(RoutingParameters.ROUTE_SIMULATIONS)
     public List<SimulationParameters> findAll() {
         return simulationService.findAll();
     }
 
     // Returns specific simulation details by id
-    @GetMapping("/simulations/{simulationId}")
+    @GetMapping(RoutingParameters.ROUTE_SIMULATION_ID)
     public SimulationDetails getSimulation(@PathVariable int simulationId) {
 
         SimulationParameters simulationParameters = simulationService.findById(simulationId);
@@ -53,7 +54,7 @@ public class SimulationRestController {
 
 
     // Add simulation
-    @PostMapping("/simulations")
+    @PostMapping(RoutingParameters.ROUTE_SIMULATION)
     public SimulationParameters addSimulation(@RequestBody SimulationParameters simulationParameters) {
 
         simulationParameters.setId(0);
@@ -65,7 +66,7 @@ public class SimulationRestController {
 
     // Edit simulation
     //TODO  Provide validation for wrong id's
-    @PutMapping("/simulations")
+    @PutMapping(RoutingParameters.ROUTE_SIMULATION)
     public SimulationDetails updateSimulation(@RequestBody SimulationParameters simulationParameters) {
 
 //        System.out.println("simulation parameters id from FE: " + simulationParameters.getId());
@@ -81,7 +82,7 @@ public class SimulationRestController {
     }
 
     // Delete simulation
-    @DeleteMapping("/simulations/{simulationId}")
+    @DeleteMapping(RoutingParameters.ROUTE_SIMULATION_ID)
     public String deleteSimulation(@PathVariable int simulationId) {
         SimulationParameters tempSimulationParameters = simulationService.findById(simulationId);
 
